@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@media (orientation: landscape) {
+  .game.pcn-viewer {
+    --font-size: 4vh;
+  }
+}
+
+@media (orientation: portrait) {
+  .game.pcn-viewer {
+    --font-size: 4vw;
+  }
+}
+
+.game.pcn-viewer {
+  --square-size: calc(var(--font-size)*1.4);
+  font-size: var(--font-size);
+  display: inline-block;
+  flex-direction: column;
+}
+
+.game.pcn-viewer .position .pieces-in-hand,
+.game.pcn-viewer .position .board .square {
+  width: var(--square-size);
+}
+
+.game.pcn-viewer .position {
+  display: flex;
+  justify-content: center;
+  font-family: monospace;
+  user-select: none;
+}
+
+.game.pcn-viewer .position .board {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  list-style: none;
+}
+
+.game.pcn-viewer .position .board .square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--square-size);
+}
+
+.game.pcn-viewer .position .pieces-in-hand {
+  display: flex;
+  list-style: none;
+  margin: 0 calc(var(--font-size)/2);
+  padding: 0;
+  height: inherit;
+  align-items: center;
+}
+
+.game.pcn-viewer .position .pieces-in-hand:first-of-type {
+  flex-direction: column;
+  justify-content: start;
+}
+
+.game.pcn-viewer .position .pieces-in-hand:last-of-type {
+  flex-direction: column-reverse;
+  justify-content: end;
+}
+
+.game.pcn-viewer .actions {
+  text-align: center;
+  padding: calc(var(--font-size)/2);
+}
+
+.game.pcn-viewer .actions .action {
+  margin: calc(var(--font-size)/1.5);
+  font-size: var(--font-size);
+}
+
+.game.pcn-viewer .actions .action:enabled {
+  cursor: pointer;
+}

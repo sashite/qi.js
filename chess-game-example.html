@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chess game example</title>
+    <meta charset="utf-8" />
+    <link href="pcn-viewer.css" type="text/css" rel="stylesheet" />
+    <script src="pcn-viewer.js"></script>
+    <script>
+      const PCN = {
+        "name": "Immortal Game",
+
+        "event": "London",
+        "location": "London ENG",
+        "href": "https://en.wikipedia.org/wiki/Immortal_Game",
+
+        "started_on": "1851-06-21",
+
+        "is_in_check": true,
+        "is_topside_better": false,
+
+        "topside": {
+          "name": "Lionel Adalbert Bagration Felix Kieseritzky"
+        },
+
+        "bottomside": {
+          "name": "Adolf Anderssen"
+        },
+
+        "indexes": [8, 8],
+
+        "startpos": [
+          "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜",
+          "♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟",
+          null, null, null, null, null, null, null, null,
+          null, null, null, null, null, null, null, null,
+          null, null, null, null, null, null, null, null,
+          null, null, null, null, null, null, null, null,
+          "♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙",
+          "♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"
+        ],
+
+        "moves": [
+          [ 52, 36, "♙" ],
+          [ 12, 28, "♟" ],
+          [ 53, 37, "♙" ],
+          [ 28, 37, "♟" ],
+          [ 61, 34, "♗" ],
+          [ 3, 39, "♛" ],
+          [ 60, 61, "♔" ],
+          [ 9, 25, "♟" ],
+          [ 34, 25, "♗" ],
+          [ 6, 21, "♞" ],
+          [ 62, 45, "♘" ],
+          [ 39, 23, "♛" ],
+          [ 51, 43, "♙" ],
+          [ 21, 31, "♞" ],
+          [ 45, 39, "♘" ],
+          [ 23, 30, "♛" ],
+          [ 39, 29, "♘" ],
+          [ 10, 18, "♟" ],
+          [ 54, 38, "♙" ],
+          [ 31, 21, "♞" ],
+          [ 63, 62, "♖" ],
+          [ 18, 25, "♟" ],
+          [ 55, 39, "♙" ],
+          [ 30, 22, "♛" ],
+          [ 39, 31, "♙" ],
+          [ 22, 30, "♛" ],
+          [ 59, 45, "♕" ],
+          [ 21, 6, "♞" ],
+          [ 58, 37, "♗" ],
+          [ 30, 21, "♛" ],
+          [ 57, 42, "♘" ],
+          [ 5, 26, "♝" ],
+          [ 42, 27, "♘" ],
+          [ 21, 49, "♛" ],
+          [ 37, 19, "♗" ],
+          [ 26, 62, "♝" ],
+          [ 36, 28, "♙" ],
+          [ 49, 56, "♛" ],
+          [ 61, 52, "♔" ],
+          [ 1, 16, "♞" ],
+          [ 29, 14, "♘" ],
+          [ 4, 3, "♚" ],
+          [ 45, 21, "♕" ],
+          [ 6, 21, "♞" ],
+          [ 19, 12, "♗" ]
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <style>
+      .game.pcn-viewer .board {
+        background-color: #d18b47;
+        border: medium solid #666;
+      }
+
+      .game.pcn-viewer .board .square:nth-of-type(16n+16),
+      .game.pcn-viewer .board .square:nth-of-type(16n+14),
+      .game.pcn-viewer .board .square:nth-of-type(16n+12),
+      .game.pcn-viewer .board .square:nth-of-type(16n+10),
+      .game.pcn-viewer .board .square:nth-of-type(16n+7),
+      .game.pcn-viewer .board .square:nth-of-type(16n+5),
+      .game.pcn-viewer .board .square:nth-of-type(16n+3),
+      .game.pcn-viewer .board .square:nth-of-type(16n+1) {
+        background-color: #ffce9e;
+      }
+    </style>
+
+    <article id="immortal-game">
+    </article>
+
+    <script>
+      pcnViewer('immortal-game', PCN);
+    </script>
+  </body>
+</html>
