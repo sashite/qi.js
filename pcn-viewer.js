@@ -8,7 +8,15 @@ function pcnViewer(gameId, pcnDocument) {
 function pcnRender(gameId, movesCounter) {
   var gameEl      = window.document.getElementById(gameId);
   var pcnDocument = JSON.parse(gameEl.dataset.pcn);
-  var state       = playMoves(pcnDocument.startpos, pcnDocument.moves.slice(0, movesCounter));
+
+  if (pcnDocument.startpos === undefined || pcnDocument.startpos === null) {
+    var squareCounter = pcnDocument.indexes.reduce((a, b) => a * b);
+    var startpos = Array(squareCounter).fill(null);
+  } else {
+    var startpos = pcnDocument.startpos;
+  }
+
+  var state = playMoves(startpos, pcnDocument.moves.slice(0, movesCounter));
 
   pcnDomApply(gameEl, pcnDocument, state, movesCounter);
 }
@@ -221,5 +229,3 @@ function moveToActions(moveArr) {
 
   return actions;
 }
-
-module.exports = pcnViewer;
