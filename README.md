@@ -21,17 +21,96 @@ JavaScript:
 
 ```javascript
 pcnViewer("game1", {
-  "indexes": [8, 8],
-  "startpos": [
-    "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜",
-    "♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟",
-    null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null,
-    "♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙",
-    "♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"
-  ]
+  "bottomside": {
+    "name": "Adolf Anderssen"
+  },
+
+  "event": "London",
+  "finished_at": null,
+  "href": "https://en.wikipedia.org/wiki/Immortal_Game",
+  "location": "London ENG",
+
+  "moves": [
+    [ 52, 36, "♙" ],
+    [ 12, 28, "♟" ],
+    [ 53, 37, "♙" ],
+    [ 28, 37, "♟" ],
+    [ 61, 34, "♗" ],
+    [ 3, 39, "♛" ],
+    [ 60, 61, "♔" ],
+    [ 9, 25, "♟" ],
+    [ 34, 25, "♗" ],
+    [ 6, 21, "♞" ],
+    [ 62, 45, "♘" ],
+    [ 39, 23, "♛" ],
+    [ 51, 43, "♙" ],
+    [ 21, 31, "♞" ],
+    [ 45, 39, "♘" ],
+    [ 23, 30, "♛" ],
+    [ 39, 29, "♘" ],
+    [ 10, 18, "♟" ],
+    [ 54, 38, "♙" ],
+    [ 31, 21, "♞" ],
+    [ 63, 62, "♖" ],
+    [ 18, 25, "♟" ],
+    [ 55, 39, "♙" ],
+    [ 30, 22, "♛" ],
+    [ 39, 31, "♙" ],
+    [ 22, 30, "♛" ],
+    [ 59, 45, "♕" ],
+    [ 21, 6, "♞" ],
+    [ 58, 37, "♗" ],
+    [ 30, 21, "♛" ],
+    [ 57, 42, "♘" ],
+    [ 5, 26, "♝" ],
+    [ 42, 27, "♘" ],
+    [ 21, 49, "♛" ],
+    [ 37, 19, "♗" ],
+    [ 26, 62, "♝" ],
+    [ 36, 28, "♙" ],
+    [ 49, 56, "♛" ],
+    [ 61, 52, "♔" ],
+    [ 1, 16, "♞" ],
+    [ 29, 14, "♘" ],
+    [ 4, 3, "♚" ],
+    [ 45, 21, "♕" ],
+    [ 6, 21, "♞" ],
+    [ 19, 12, "♗" ]
+  ],
+
+  "name": "Immortal Game",
+  "round": null,
+
+  "setup": {
+    "bottomside_in_hand_pieces": [],
+
+    "indexes": [8, 8],
+    "is_topside_moves_first": false,
+
+    "squares": [
+      "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜",
+      "♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟",
+      null, null, null, null, null, null, null, null,
+      null, null, null, null, null, null, null, null,
+      null, null, null, null, null, null, null, null,
+      null, null, null, null, null, null, null, null,
+      "♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙",
+      "♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"
+    ],
+
+    "topside_in_hand_pieces": []
+  },
+
+  "started_on": "1851-06-21",
+
+  "state": {
+    "is_in_check": true,
+    "is_topside_better": false
+  },
+
+  "topside": {
+    "name": "Lionel Adalbert Bagration Felix Kieseritzky"
+  }
 });
 ```
 
