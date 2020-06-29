@@ -1,59 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shogi game example</title>
+    <title>Shogi problem example</title>
     <meta charset="utf-8" />
     <link href="pcn-viewer.css" type="text/css" rel="stylesheet" />
     <script src="pcn-viewer.js"></script>
     <script>
       const PCN = {
-        "bottomside": null,
-        "event": null,
-        "finished_at": null,
-        "href": "https://userpages.monmouth.com/~colonel/shortshogi.html",
-        "location": null,
-
         "moves": [
-          [ 56, 47, "P" ],
-          [ 3, 11, "g" ],
-          [ 64, 24, "+B", "P" ],
-          [ 5, 14, "g" ],
-          [ 24, 14, "+B", "G" ],
-          [ 4, 3, "k" ],
-          [ null, 13, "G" ]
+          [ 43, 13, "+B" ],
+          [ 5, 13, "s", "b" ],
+          [ null, 14, "S" ]
         ],
 
-        "name": "The Shortest Possible Game of Shogi",
-        "round": null,
+        "name": "Problem 1",
 
         "setup": {
-          "bottomside_in_hand_pieces": [],
+          "bottomside_in_hand_pieces": ["S"],
           "indexes": [9, 9],
           "is_topside_moves_first": false,
 
           "squares": [
-            "l", "n", "s", "g", "k", "g", "s", "n", "l",
-            null, "r", null, null, null, null, null, "b", null,
-            "p", "p", "p", "p", "p", "p", "p", "p", "p",
+            null, null, null, "s", "k", "s", null, null, null,
+            null, null, null, null, null, null, null, null, null,
+            null, null, null, null, "+P", null, null, null, null,
+            null, null, null, null, null, null, null, null, null,
+            null, null, null, null, null, null, null, "+B", null,
             null, null, null, null, null, null, null, null, null,
             null, null, null, null, null, null, null, null, null,
             null, null, null, null, null, null, null, null, null,
-            "P", "P", "P", "P", "P", "P", "P", "P", "P",
-            null, "B", null, null, null, null, null, "R", null,
-            "L", "N", "S", "G", "K", "G", "S", "N", "L"
+            null, null, null, null, null, null, null, null, null
           ],
 
           "topside_in_hand_pieces": []
         },
 
-        "started_on": null,
-
         "state": {
           "is_in_check": true,
           "is_topside_better": false
-        },
-
-        "topside": null
+        }
       };
     </script>
   </head>
@@ -75,11 +60,11 @@
       }
     </style>
 
-    <article id="the-shortest-possible-game-of-shogi">
+    <article id="classic-tsume-shogi-problem">
     </article>
 
     <script>
-      pcnViewer('the-shortest-possible-game-of-shogi', PCN);
+      pcnViewer('classic-tsume-shogi-problem', PCN);
     </script>
   </body>
 </html>

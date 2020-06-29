@@ -7,25 +7,11 @@
     <script src="pcn-viewer.js"></script>
     <script>
       const PCN = {
-        "name": "Short Double Cannons Checkmate",
-
-        "is_in_check": true,
-        "is_topside_better": false,
-
-        "indexes": [10, 9],
-
-        "startpos": [
-          "車", "馬", "象", "士", "將", "士", "象", "馬", "車",
-          null, null, null, null, null, null, null, null, null,
-          null, "砲", null, null, null, null, null, "砲", null,
-          "卒", null, "卒", null, "卒", null, "卒", null, "卒",
-          null, null, null, null, null, null, null, null, null,
-          null, null, null, null, null, null, null, null, null,
-          "兵", null, "兵", null, "兵", null, "兵", null, "兵",
-          null, "炮", null, null, null, null, null, "炮", null,
-          null, null, null, null, null, null, null, null, null,
-          "俥", "傌", "相", "仕", "帥", "仕", "相", "傌", "俥"
-        ],
+        "bottomside": null,
+        "event": null,
+        "finished_at": null,
+        "href": null,
+        "location": null,
 
         "moves": [
           [ 64, 67, "炮" ],
@@ -35,8 +21,42 @@
           [ 67, 31, "炮" ],
           [ 22, 58, "砲" ],
           [ 52, 49, "炮" ]
-        ]
-      }
+        ],
+
+        "name": "Short Double Cannons Checkmate",
+        "round": null,
+
+        "setup": {
+          "bottomside_in_hand_pieces": [],
+
+          "indexes": [10, 9],
+          "is_topside_moves_first": false,
+
+          "squares": [
+            "車", "馬", "象", "士", "將", "士", "象", "馬", "車",
+            null, null, null, null, null, null, null, null, null,
+            null, "砲", null, null, null, null, null, "砲", null,
+            "卒", null, "卒", null, "卒", null, "卒", null, "卒",
+            null, null, null, null, null, null, null, null, null,
+            null, null, null, null, null, null, null, null, null,
+            "兵", null, "兵", null, "兵", null, "兵", null, "兵",
+            null, "炮", null, null, null, null, null, "炮", null,
+            null, null, null, null, null, null, null, null, null,
+            "俥", "傌", "相", "仕", "帥", "仕", "相", "傌", "俥"
+          ],
+
+          "topside_in_hand_pieces": []
+        },
+
+        "started_on": null,
+
+        "state": {
+          "is_in_check": true,
+          "is_topside_better": false
+        },
+
+        "topside": null
+      };
     </script>
   </head>
 
@@ -59,11 +79,11 @@
       }
     </style>
 
-    <article id="short-double-cannons-checkmate">
+    <article id="the-early-checkmate">
     </article>
 
     <script>
-      pcnViewer('short-double-cannons-checkmate', PCN);
+      pcnViewer('the-early-checkmate', PCN);
     </script>
   </body>
 </html>

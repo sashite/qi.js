@@ -8,15 +8,7 @@ function pcnViewer(gameId, pcnDocument) {
 function pcnRender(gameId, movesCounter) {
   var gameEl      = window.document.getElementById(gameId);
   var pcnDocument = JSON.parse(gameEl.dataset.pcn);
-
-  if (pcnDocument.startpos === undefined || pcnDocument.startpos === null) {
-    var squareCounter = pcnDocument.indexes.reduce((a, b) => a * b);
-    var startpos = Array(squareCounter).fill(null);
-  } else {
-    var startpos = pcnDocument.startpos;
-  }
-
-  var state = playMoves(startpos, pcnDocument.moves.slice(0, movesCounter));
+  var state       = playMoves(pcnDocument.setup, pcnDocument.moves.slice(0, movesCounter));
 
   pcnDomApply(gameEl, pcnDocument, state, movesCounter);
 }
@@ -72,7 +64,7 @@ function pcnDomApply(gameEl, pcnDocument, state, movesCounter) {
   var gameBoardEl = window.document.createElement('ol');
 
   gameBoardEl.className = 'board';
-  gameBoardEl.style.gridTemplateColumns = 'repeat(' + pcnDocument.indexes[1] + ', 1fr)';
+  gameBoardEl.style.gridTemplateColumns = 'repeat(' + pcnDocument.setup.indexes[1] + ', 1fr)';
 
   for (let id = 0; id < state.squares.length; id++) {
     var squareEl = window.document.createElement('li');
@@ -171,10 +163,11 @@ function pcnDomApply(gameEl, pcnDocument, state, movesCounter) {
   gameEl.appendChild(gameActionsEl);
 }
 
-function playMoves(squares, moves) {
-  var gameTopsidePiecesInHands    = [];
-  var gameBottomsidePiecesInHands = [];
-  var isTurnToTopside             = false;
+function playMoves(setup, moves) {
+  var squares                     = setup.squares;
+  var gameTopsidePiecesInHands    = setup.topside_in_hand_pieces || [];
+  var gameBottomsidePiecesInHands = setup.bottomside_in_hand_pieces || [];
+  var isTurnToTopside             = setup.is_topside_moves_first || false;
 
   moves.forEach(function(move) {
     var actions = moveToActions(move);
