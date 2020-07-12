@@ -1,0 +1,36 @@
+{
+  "name": "@sashite/qi",
+  "version": "1.0.0",
+  "description": "Instantiate Chess positions and apply Chess moves.",
+  "main": "index.js",
+  "keywords": [
+    "chess",
+    "shogi",
+    "xiangqi",
+    "pcn-format",
+    "pmn-format",
+    "viewer",
+    "cchess",
+    "japanese-chess",
+    "makruk",
+    "chinese-chess",
+    "thai-chess",
+    "kifu",
+    "western-chess"
+  ],
+  "author": {
+    "name": "Cyril Kato",
+    "email": "contact@cyril.email"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sashite/qi.js"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "ava"
+  },
+  "devDependencies": {
+    "ava": "^3.10.1"
+  }
+}
