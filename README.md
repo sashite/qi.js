@@ -1,4 +1,4 @@
-# Qi.js
+# 棋.js
 
 [![Build Status](https://travis-ci.org/sashite/qi.js.svg?branch=master)](https://travis-ci.org/sashite/qi.js)
 
@@ -17,15 +17,17 @@ Let's replay [The Shortest Possible Game of Shogi](https://userpages.monmouth.co
 ```javascript
 const Qi = require('./index');
 
-var shogiStartingPosition = new Qi(false, [], [], 'l',  'n',  's',  'g',  'k',  'g',  's',  'n',  'l',
-                                                  null, 'r',  null, null, null, null, null, 'b',  null,
-                                                  'p',  'p',  'p',  'p',  'p',  'p',  'p',  'p',  'p',
-                                                  null, null, null, null, null, null, null, null, null,
-                                                  null, null, null, null, null, null, null, null, null,
-                                                  null, null, null, null, null, null, null, null, null,
-                                                  'P',  'P',  'P',  'P',  'P',  'P',  'P',  'P',  'P',
-                                                  null, 'B',  null, null, null, null, null, 'R',  null,
-                                                  'L',  'N',  'S',  'G',  'K',  'G',  'S',  'N',  'L');
+var startingPosition = new Qi(false, [], [],
+  'l',  'n',  's',  'g',  'k',  'g',  's',  'n',  'l',
+  null, 'r',  null, null, null, null, null, 'b',  null,
+  'p',  'p',  'p',  'p',  'p',  'p',  'p',  'p',  'p',
+  null, null, null, null, null, null, null, null, null,
+  null, null, null, null, null, null, null, null, null,
+  null, null, null, null, null, null, null, null, null,
+  'P',  'P',  'P',  'P',  'P',  'P',  'P',  'P',  'P',
+  null, 'B',  null, null, null, null, null, 'R',  null,
+  'L',  'N',  'S',  'G',  'K',  'G',  'S',  'N',  'L'
+);
 
 var moves = [
   [ 56, 47, 'P' ],
@@ -39,7 +41,7 @@ var moves = [
 
 var lastPosition = moves.reduce(function(position, move) {
   return position.play(move);
-}, shogiStartingPosition);
+}, startingPosition);
 
 lastPosition.topsideInHandPieces; // => []
 
