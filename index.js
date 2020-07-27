@@ -6,6 +6,14 @@ module.exports = class Qi {
     this.squares = squares;
   }
 
+  inHandPieces() {
+    if (this.isTurnToTopside) {
+      return this.topsideInHandPieces;
+    } else {
+      return this.bottomsideInHandPieces;
+    }
+  }
+
   moveToActions(moveArr) {
     var actions = [];
 

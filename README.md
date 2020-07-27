@@ -1,4 +1,4 @@
-# 棋.js
+# <span lang="zh"><ruby><rb>棋</rb><rt>qí</rt></ruby></span>.js
 
 [![Build Status](https://travis-ci.org/sashite/qi.js.svg?branch=master)](https://travis-ci.org/sashite/qi.js)
 
@@ -56,6 +56,7 @@ lastPosition.squares; // => ['l',  'n',  's',  'k',  null, null, 's',  'n',  'l'
                       //     'L',  'N',  'S',  'G',  'K',  'G',  'S',  'N',  'L']
 
 lastPosition.bottomsideInHandPieces; // => [ 'P' ]
+lastPosition.inHandPieces; // => []
 lastPosition.isTurnToTopside; // => true
 ```
 

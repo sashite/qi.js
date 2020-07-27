@@ -47,6 +47,10 @@ Test('bottomside has one in hand piece', t => {
   t.deepEqual(lastPosition.bottomsideInHandPieces, [ 'P' ]);
 });
 
+Test('current player has no in hand pieces', t => {
+  t.deepEqual(lastPosition.inHandPieces(), []);
+});
+
 Test('turn to topside', t => {
   t.true(lastPosition.isTurnToTopside);
 });
