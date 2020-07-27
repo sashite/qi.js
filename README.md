@@ -1,8 +1,8 @@
-# <span lang="zh"><ruby><rb>棋</rb><rt>qí</rt></ruby></span>.js
+# Qi.js
 
 [![Build Status](https://travis-ci.org/sashite/qi.js.svg?branch=master)](https://travis-ci.org/sashite/qi.js)
 
-> Instantiate [Portable Chess Notation](https://developer.sashite.com/specs/portable-chess-notation)'s positions and apply [Portable Move Notation](https://developer.sashite.com/specs/portable-move-notation)'s moves.
+> `Qi` (棋) is an abstraction for initializing and updating positions of chess variants (including Chess, Janggi, Markruk, Shogi, Xiangqi).
 
 ## Installation
 
@@ -29,6 +29,7 @@ var startingPosition = new Qi(false, [], [],
   'L',  'N',  'S',  'G',  'K',  'G',  'S',  'N',  'L'
 );
 
+// List of moves in Portable Move Notation (https://developer.sashite.com/specs/portable-move-notation) format.
 var moves = [
   [ 56, 47, 'P' ],
   [ 3, 11, 'g' ],
@@ -66,6 +67,6 @@ The code is available as open source under the terms of the [MIT License](https:
 
 ## About Sashite
 
-This package is maintained by [Sashite](https://sashite.com/).
+This [package](https://www.npmjs.com/package/@sashite/qi) is maintained by [Sashite](https://sashite.com/).
 
 With some [lines of code](https://github.com/sashite/), let's share the beauty of Chinese, Japanese and Western cultures through the game of chess!
