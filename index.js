@@ -1,17 +1,12 @@
 module.exports = class Qi {
-  constructor(isTurnToTopside, bottomsideInHandPieces, topsideInHandPieces, ...squares) {
-    this.isTurnToTopside = isTurnToTopside;
-    this.bottomsideInHandPieces = bottomsideInHandPieces;
-    this.topsideInHandPieces = topsideInHandPieces;
+  constructor(activeSideId, piecesInHandGroupedBySides, ...squares) {
+    this.activeSideId = activeSideId % piecesInHandGroupedBySides.length;
+    this.piecesInHandGroupedBySides = piecesInHandGroupedBySides;
     this.squares = squares;
   }
 
   inHandPieces() {
-    if (this.isTurnToTopside) {
-      return this.topsideInHandPieces;
-    } else {
-      return this.bottomsideInHandPieces;
-    }
+    return this.piecesInHandGroupedBySides[this.activeSideId];
   }
 
   moveToActions(moveArr) {
@@ -25,10 +20,9 @@ module.exports = class Qi {
   }
 
   play(move) {
-    var isTurnToTopside             = this.isTurnToTopside;
-    var nextBottomsideInHandPieces  = this.bottomsideInHandPieces;
-    var nextTopsideInHandPieces     = this.topsideInHandPieces;
-    var nextSquares                 = this.squares;
+    var activeSideId      = this.activeSideId;
+    var nextInHandPieces  = this.inHandPieces().concat();
+    var nextSquares       = this.squares.concat();
 
     var actions = this.moveToActions(move);
 
@@ -39,13 +33,10 @@ module.exports = class Qi {
       var capturedPieceName = action[3];
 
       if (srcSquareId === null) {
-        if (isTurnToTopside) {
-          var pieceInHandId = nextTopsideInHandPieces.indexOf(movedPieceName);
-          nextTopsideInHandPieces.splice(pieceInHandId, 1);
-        } else {
-          var pieceInHandId = nextBottomsideInHandPieces.indexOf(movedPieceName);
-          nextBottomsideInHandPieces.splice(pieceInHandId, 1);
-        }
+        var pieceInHandId = nextInHandPieces.indexOf(movedPieceName);
+
+        if (pieceInHandId !== -1)
+          nextInHandPieces.splice(pieceInHandId, 1);
       } else {
         nextSquares[srcSquareId] = null;
       }
@@ -53,14 +44,17 @@ module.exports = class Qi {
       nextSquares[dstSquareId] = movedPieceName;
 
       if (capturedPieceName) {
-        if (isTurnToTopside) {
-          nextTopsideInHandPieces.push(capturedPieceName);
-        } else {
-          nextBottomsideInHandPieces.push(capturedPieceName);
-        }
+        nextInHandPieces.push(capturedPieceName);
       }
     });
 
-    return new Qi(!isTurnToTopside, nextBottomsideInHandPieces, nextTopsideInHandPieces, ...nextSquares);
+    var nextPiecesInHandGroupedBySides = this.piecesInHandGroupedBySides.concat();
+    nextPiecesInHandGroupedBySides[activeSideId] = nextInHandPieces;
+
+    return new Qi(
+      activeSideId + 1,
+      nextPiecesInHandGroupedBySides,
+      ...nextSquares
+    );
   }
 };
