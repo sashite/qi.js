@@ -20,11 +20,11 @@ Test('active side is Sente', t => {
 });
 
 Test('Sente has no in hand pieces', t => {
-	t.deepEqual(shogiStartingPosition.inHandPieces(), []);
+  t.deepEqual(shogiStartingPosition.inHandPieces(), []);
 });
 
 Test("Sente and Gote have no in hand pieces", t => {
-	t.deepEqual(shogiStartingPosition.piecesInHandGroupedBySides, [[], []]);
+  t.deepEqual(shogiStartingPosition.piecesInHandGroupedBySides, [[], []]);
 });
 
 var moves = [
@@ -43,7 +43,7 @@ Test('active side is Gote', t => {
 });
 
 Test('Gote has no in hand pieces', t => {
-	t.deepEqual(lastPosition.inHandPieces(), []);
+  t.deepEqual(lastPosition.inHandPieces(), []);
 });
 
 Test('the content of the squares on the board', t => {
@@ -61,5 +61,5 @@ Test('the content of the squares on the board', t => {
 });
 
 Test("Sente and Gote's in hand pieces", t => {
-	t.deepEqual(lastPosition.piecesInHandGroupedBySides, [['P'], []]);
+  t.deepEqual(lastPosition.piecesInHandGroupedBySides, [['P'], []]);
 });
