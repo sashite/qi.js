@@ -23,7 +23,7 @@ Test('Sente has no in hand pieces', t => {
   t.deepEqual(shogiStartingPosition.inHandPieces(), []);
 });
 
-Test("Sente and Gote have no in hand pieces", t => {
+Test('Sente and Gote have no in hand pieces', t => {
   t.deepEqual(shogiStartingPosition.piecesInHandGroupedBySides, [[], []]);
 });
 
