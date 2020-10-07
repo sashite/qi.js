@@ -1,12 +1,7 @@
 module.exports = class Qi {
-  constructor(activeSideId, piecesInHandGroupedBySides, ...squares) {
-    this.activeSideId = activeSideId % piecesInHandGroupedBySides.length;
-    this.piecesInHandGroupedBySides = piecesInHandGroupedBySides;
-    this.squares = squares;
-  }
-
-  inHandPieces() {
-    return this.piecesInHandGroupedBySides[this.activeSideId];
+  constructor(inHand, square) {
+    this.inHand = inHand;
+    this.square = square;
   }
 
   moveToActions(moveArr) {
@@ -20,9 +15,13 @@ module.exports = class Qi {
   }
 
   play(move) {
-    var activeSideId      = this.activeSideId;
-    var nextInHandPieces  = this.inHandPieces().concat();
-    var nextSquares       = this.squares.concat();
+    var nextInHand = this.inHand.concat();
+    var square     = this.square;
+    var nextSquare = {};
+
+    Object.keys(square).forEach(function(key) {
+      nextSquare[key] = square[key];
+    });
 
     var actions = this.moveToActions(move);
 
@@ -33,28 +32,23 @@ module.exports = class Qi {
       var capturedPieceName = action[3];
 
       if (srcSquareId === null) {
-        var pieceInHandId = nextInHandPieces.indexOf(movedPieceName);
+        var inHandId = nextInHand.indexOf(movedPieceName);
 
-        if (pieceInHandId !== -1)
-          nextInHandPieces.splice(pieceInHandId, 1);
+        if (inHandId !== -1)
+          nextInHand.splice(inHandId, 1);
       } else {
-        nextSquares[srcSquareId] = null;
+        delete nextSquare[srcSquareId];
       }
 
-      nextSquares[dstSquareId] = movedPieceName;
+      nextSquare[dstSquareId] = movedPieceName;
 
-      if (capturedPieceName) {
-        nextInHandPieces.push(capturedPieceName);
-      }
+      if (capturedPieceName)
+        nextInHand.push(capturedPieceName);
     });
 
-    var nextPiecesInHandGroupedBySides = this.piecesInHandGroupedBySides.concat();
-    nextPiecesInHandGroupedBySides[activeSideId] = nextInHandPieces;
-
     return new Qi(
-      activeSideId + 1,
-      nextPiecesInHandGroupedBySides,
-      ...nextSquares
+      nextInHand,
+      nextSquare
     );
   }
 };

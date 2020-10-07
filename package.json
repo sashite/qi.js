@@ -1,6 +1,6 @@
 {
   "name": "@sashite/qi",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Instantiate Chess positions and apply Chess moves.",
   "main": "index.js",
   "keywords": [

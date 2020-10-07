@@ -17,16 +17,50 @@ Let's replay [The Shortest Possible Game](https://userpages.monmouth.com/~colone
 ```javascript
 const Qi = require('./index');
 
-var startingPosition = new Qi(0, [[], []],
-  'l',  'n',  's',  'g',  'k',  'g',  's',  'n',  'l',
-  null, 'r',  null, null, null, null, null, 'b',  null,
-  'p',  'p',  'p',  'p',  'p',  'p',  'p',  'p',  'p',
-  null, null, null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null, null, null,
-  'P',  'P',  'P',  'P',  'P',  'P',  'P',  'P',  'P',
-  null, 'B',  null, null, null, null, null, 'R',  null,
-  'L',  'N',  'S',  'G',  'K',  'G',  'S',  'N',  'L'
+var startingPosition = new Qi(
+  [],
+  {
+     0: "l",
+     1: "n",
+     2: "s",
+     3: "g",
+     4: "k",
+     5: "g",
+     6: "s",
+     7: "n",
+     8: "l",
+    10: "r",
+    16: "b",
+    18: "p",
+    19: "p",
+    20: "p",
+    21: "p",
+    22: "p",
+    23: "p",
+    24: "p",
+    25: "p",
+    26: "p",
+    54: "P",
+    55: "P",
+    56: "P",
+    57: "P",
+    58: "P",
+    59: "P",
+    60: "P",
+    61: "P",
+    62: "P",
+    64: "B",
+    70: "R",
+    72: "L",
+    73: "N",
+    74: "S",
+    75: "G",
+    76: "K",
+    77: "G",
+    78: "S",
+    79: "N",
+    80: "L"
+  }
 );
 
 // List of moves generated from PMN (https://developer.sashite.com/specs/portable-move-notation)
@@ -41,25 +75,51 @@ var lastPosition = moves.reduce(function(position, move) {
   return position.play(move);
 }, startingPosition);
 
-lastPosition.inHandPieces();
-// => []
+lastPosition.inHand;
+// => [ 'P' ]
 
-lastPosition.squares;
-// => ['l',  'n',  's',  'k',  null, null, 's',  'n',  'l',
-//     null, 'r',  'g',  null, 'G',  '+B', null, 'b',  null,
-//     'p',  'p',  'p',  'p',  'p',  'p',  null, 'p',  'p',
-//     null, null, null, null, null, null, null, null, null,
-//     null, null, null, null, null, null, null, null, null,
-//     null, null, 'P',  null, null, null, null, null, null,
-//     'P',  'P',  null, 'P',  'P',  'P',  'P',  'P',  'P',
-//     null, null, null, null, null, null, null, 'R',  null,
-//     'L',  'N',  'S',  'G',  'K',  'G',  'S',  'N',  'L']
-
-lastPosition.piecesInHandGroupedBySides;
-// => [ [ 'P' ], [] ]
-
-lastPosition.activeSideId;
-// => 1
+lastPosition.square;
+// =>  {
+//       '0': 'l',
+//       '1': 'n',
+//       '2': 's',
+//       '3': 'k',
+//       '6': 's',
+//       '7': 'n',
+//       '8': 'l',
+//       '10': 'r',
+//       '11': 'g',
+//       '13': 'G',
+//       '14': '+B',
+//       '16': 'b',
+//       '18': 'p',
+//       '19': 'p',
+//       '20': 'p',
+//       '21': 'p',
+//       '22': 'p',
+//       '23': 'p',
+//       '25': 'p',
+//       '26': 'p',
+//       '47': 'P',
+//       '54': 'P',
+//       '55': 'P',
+//       '57': 'P',
+//       '58': 'P',
+//       '59': 'P',
+//       '60': 'P',
+//       '61': 'P',
+//       '62': 'P',
+//       '70': 'R',
+//       '72': 'L',
+//       '73': 'N',
+//       '74': 'S',
+//       '75': 'G',
+//       '76': 'K',
+//       '77': 'G',
+//       '78': 'S',
+//       '79': 'N',
+//       '80': 'L'
+//     }
 ```
 
 ## License

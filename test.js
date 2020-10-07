@@ -2,29 +2,98 @@ const Test = require('ava');
 const Qi = require('./index');
 
 var shogiStartingPosition = new Qi(
-  0,
-  [[], []],
-  'l',  'n',  's',  'g',  'k',  'g',  's',  'n',  'l',
-  null, 'r',  null, null, null, null, null, 'b',  null,
-  'p',  'p',  'p',  'p',  'p',  'p',  'p',  'p',  'p',
-  null, null, null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null, null, null,
-  'P',  'P',  'P',  'P',  'P',  'P',  'P',  'P',  'P',
-  null, 'B',  null, null, null, null, null, 'R',  null,
-  'L',  'N',  'S',  'G',  'K',  'G',  'S',  'N',  'L'
+  [],
+  {
+     0: "l",
+     1: "n",
+     2: "s",
+     3: "g",
+     4: "k",
+     5: "g",
+     6: "s",
+     7: "n",
+     8: "l",
+    10: "r",
+    16: "b",
+    18: "p",
+    19: "p",
+    20: "p",
+    21: "p",
+    22: "p",
+    23: "p",
+    24: "p",
+    25: "p",
+    26: "p",
+    54: "P",
+    55: "P",
+    56: "P",
+    57: "P",
+    58: "P",
+    59: "P",
+    60: "P",
+    61: "P",
+    62: "P",
+    64: "B",
+    70: "R",
+    72: "L",
+    73: "N",
+    74: "S",
+    75: "G",
+    76: "K",
+    77: "G",
+    78: "S",
+    79: "N",
+    80: "L"
+  }
 );
 
-Test('active side is Sente', t => {
-  t.true(shogiStartingPosition.activeSideId === 0);
+Test('there are no in hand pieces', t => {
+  t.deepEqual(shogiStartingPosition.inHand, []);
 });
 
-Test('Sente has no in hand pieces', t => {
-  t.deepEqual(shogiStartingPosition.inHandPieces(), []);
-});
-
-Test('Sente and Gote have no in hand pieces', t => {
-  t.deepEqual(shogiStartingPosition.piecesInHandGroupedBySides, [[], []]);
+Test('the content of the first board', t => {
+  t.deepEqual(shogiStartingPosition.square, {
+     0: "l",
+     1: "n",
+     2: "s",
+     3: "g",
+     4: "k",
+     5: "g",
+     6: "s",
+     7: "n",
+     8: "l",
+    10: "r",
+    16: "b",
+    18: "p",
+    19: "p",
+    20: "p",
+    21: "p",
+    22: "p",
+    23: "p",
+    24: "p",
+    25: "p",
+    26: "p",
+    54: "P",
+    55: "P",
+    56: "P",
+    57: "P",
+    58: "P",
+    59: "P",
+    60: "P",
+    61: "P",
+    62: "P",
+    64: "B",
+    70: "R",
+    72: "L",
+    73: "N",
+    74: "S",
+    75: "G",
+    76: "K",
+    77: "G",
+    78: "S",
+    79: "N",
+    80: "L"
+  });
 });
 
 var moves = [
@@ -38,28 +107,50 @@ var lastPosition = moves.reduce(function(position, move) {
   return position.play(move);
 }, shogiStartingPosition);
 
-Test('active side is Gote', t => {
-  t.true(lastPosition.activeSideId === 1);
+Test("sente's captured pawn in hand", t => {
+  t.deepEqual(lastPosition.inHand, [ 'P' ]);
 });
 
-Test('Gote has no in hand pieces', t => {
-  t.deepEqual(lastPosition.inHandPieces(), []);
-});
-
-Test('the content of the squares on the board', t => {
-  t.deepEqual(lastPosition.squares, [
-    'l',  'n',  's',  'k',  null, null, 's',  'n',  'l',
-    null, 'r',  'g',  null, 'G',  '+B', null, 'b',  null,
-    'p',  'p',  'p',  'p',  'p',  'p',  null, 'p',  'p',
-    null, null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null, null,
-    null, null, 'P',  null, null, null, null, null, null,
-    'P',  'P',  null, 'P',  'P',  'P',  'P',  'P',  'P',
-    null, null, null, null, null, null, null, 'R',  null,
-    'L',  'N',  'S',  'G',  'K',  'G',  'S',  'N',  'L'
-  ]);
-});
-
-Test("Sente and Gote's in hand pieces", t => {
-  t.deepEqual(lastPosition.piecesInHandGroupedBySides, [['P'], []]);
+Test('the content of the last board', t => {
+  t.deepEqual(lastPosition.square, {
+     0: "l",
+     1: "n",
+     2: "s",
+     6: "s",
+     7: "n",
+     8: "l",
+    10: "r",
+    16: "b",
+    18: "p",
+    19: "p",
+    20: "p",
+    21: "p",
+    22: "p",
+    23: "p",
+    25: "p",
+    26: "p",
+    54: "P",
+    55: "P",
+    57: "P",
+    58: "P",
+    59: "P",
+    60: "P",
+    61: "P",
+    62: "P",
+    70: "R",
+    72: "L",
+    73: "N",
+    74: "S",
+    75: "G",
+    76: "K",
+    77: "G",
+    78: "S",
+    79: "N",
+    80: "L",
+    47: "P",
+    11: "g",
+    14: "+B",
+     3: "k",
+    13: "G"
+  });
 });
